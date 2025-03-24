@@ -1,5 +1,5 @@
 //
-//  ContriesViewModel.swift
+//  CountriesViewModel.swift
 //  WalmartCodingChallenge
 //
 //  Created by Remberto Nunez on 3/21/25.
@@ -8,16 +8,26 @@
 import Foundation
 import Combine
 
-class CountriesViewModel {
-    var countries: [CountryModel] = []
-    var update: (() -> Void)?
-    private var searchedCountries: [CountryModel] = []
-    private let caller: DataCaller = NetworkManager()
+class CountriesViewModel: ObservableObject {
+    @Published private(set) var countries: [CountryModel] = []
+    @Published private(set) var searchedCountries: [CountryModel] = []
+    @Published var isSearchActive: Bool = false
+    @Published var searchText: String = ""
+    
+    private let caller: DataCaller
     private let urlString = Constants.API.countriesURL
     private var cancellables = Set<AnyCancellable>()
     
-    var isSearchActive: Bool = false {
-        didSet { update?() }
+    init(caller: DataCaller = NetworkManager()) {
+        self.caller = caller
+        
+        $searchText
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .removeDuplicates()
+            .sink { [weak self] text in
+                self?.filterCountries(with: text)
+            }
+            .store(in: &cancellables)
     }
     
     func getCountries() {
@@ -29,18 +39,16 @@ class CountriesViewModel {
                 }
             }, receiveValue: { [weak self] country in
                 self?.countries = country
-                self?.update?()
             })
             .store(in: &cancellables)
     }
     
-    func searchCountries(with searchText: String) {
+    private func filterCountries(with searchText: String) {
         let lowercased = searchText.lowercased()
         searchedCountries = countries.filter {
             $0.displayName.lowercased().contains(lowercased) ||
             $0.displayCapital.lowercased().contains(lowercased)
         }
-        update?()
     }
     
     func numberOfCountries() -> Int {

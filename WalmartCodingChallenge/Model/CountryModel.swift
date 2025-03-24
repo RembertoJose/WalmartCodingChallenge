@@ -8,16 +8,37 @@
 import Foundation
 
 struct CountryModel: Decodable {
-    struct Name: Decodable {
-        let common: String
-    }
-    let name: Name
+    let capital: String?
+    let code: String?
+    let currency: Currency?
+    let flag: String?
+    let language: Language?
+    let name: String?
     let region: String?
-    let cca2: String?
-    let capital: [String]?
 
-    var displayName: String { name.common }
-    var displayRegion: String { region ?? "N/A" }
-    var displayCode: String { cca2 ?? "N/A" }
-    var displayCapital: String { capital?.first ?? "N/A" }
+    var displayName: String {
+        name ?? "N/A"
+    }
+    var displayRegion: String {
+        region ?? "N/A"
+    }
+    var displayCode: String {
+        code ?? "N/A"
+    }
+    var displayCapital: String {
+        capital ?? "N/A"
+    }
 }
+
+struct Currency: Decodable {
+    let code: String?
+    let name: String?
+    let symbol: String?
+}
+
+struct Language: Decodable {
+    let code: String?
+    let name: String?
+}
+
+

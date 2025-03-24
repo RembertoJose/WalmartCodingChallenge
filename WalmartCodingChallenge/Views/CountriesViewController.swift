@@ -6,35 +6,34 @@
 //
 
 import UIKit
+import Combine
 
 class CountriesViewController: UIViewController {
-    
     private let tableView = UITableView()
     private let searchController = UISearchController(searchResultsController: nil)
-    private let contriesViewModel = CountriesViewModel()
+    private let countriesViewModel = CountriesViewModel()
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Countries"
-        view.backgroundColor = .systemBackground
         
         setupTableView()
         setupSearchController()
-        bindViewModel()
+        setupViewModelBindings()
         
-        contriesViewModel.fetchCountries()
+        countriesViewModel.getCountries()
     }
-    
+
     private func setupTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CountryCell.self, forCellReuseIdentifier: "cell")
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 60
+        tableView.estimatedRowHeight = 80
         view.addSubview(tableView)
-        
+
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -42,7 +41,7 @@ class CountriesViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
-    
+
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -50,29 +49,35 @@ class CountriesViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
-    
-    private func bindViewModel() {
-        contriesViewModel.update = { [weak self] in
-            self?.tableView.reloadData()
-        }
+
+    private func setupViewModelBindings() {
+        countriesViewModel.$countries
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
+
+        countriesViewModel.$searchedCountries
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
     }
 }
 
 extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contriesViewModel.numberOfCountries()
+        return countriesViewModel.numberOfCountries()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let country = contriesViewModel.country(at: indexPath.row)
-        var content = cell.defaultContentConfiguration()
-        content.text = country.name
-        content.secondaryText = "Region: \(country.region)\nCode: \(country.code), Capital: \(country.capital)"
-        content.textProperties.adjustsFontForContentSizeCategory = true
-        content.secondaryTextProperties.adjustsFontForContentSizeCategory = true
-        content.secondaryTextProperties.numberOfLines = 0
-        cell.contentConfiguration = content
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CountryCell else {
+            return UITableViewCell()
+        }
+        let country = countriesViewModel.country(at: indexPath.row)
+        cell.configure(with: country)
         return cell
     }
 }
@@ -80,7 +85,7 @@ extension CountriesViewController: UITableViewDataSource, UITableViewDelegate {
 extension CountriesViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        contriesViewModel.isSearchActive = !text.isEmpty
-        contriesViewModel.filterCountries(with: text)
+        countriesViewModel.isSearchActive = !text.isEmpty
+        countriesViewModel.searchText = text
     }
 }

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		EDAF7A5E2D8D8E4C00C503EE /* PBXContainerItemProxy */ = {
+		ED5FABE42D90DB6E0077E31B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EDAF7A3F2D8D8E4B00C503EE /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = EDAF7A462D8D8E4B00C503EE;
 			remoteInfo = WalmartCodingChallenge;
 		};
-		EDAF7A682D8D8E4C00C503EE /* PBXContainerItemProxy */ = {
+		ED5FABF32D90DB840077E31B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EDAF7A3F2D8D8E4B00C503EE /* Project object */;
 			proxyType = 1;
@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED5FABE02D90DB6E0077E31B /* WalmartCodingChallengeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalmartCodingChallengeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED5FABED2D90DB840077E31B /* WalmartCodingChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalmartCodingChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDAF7A472D8D8E4B00C503EE /* WalmartCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalmartCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDAF7A5D2D8D8E4C00C503EE /* WalmartCodingChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalmartCodingChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDAF7A672D8D8E4C00C503EE /* WalmartCodingChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalmartCodingChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -40,6 +40,16 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		ED5FABE12D90DB6E0077E31B /* WalmartCodingChallengeUnitTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WalmartCodingChallengeUnitTests;
+			sourceTree = "<group>";
+		};
+		ED5FABEE2D90DB840077E31B /* WalmartCodingChallengeUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WalmartCodingChallengeUITests;
+			sourceTree = "<group>";
+		};
 		EDAF7A492D8D8E4B00C503EE /* WalmartCodingChallenge */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -48,34 +58,24 @@
 			path = WalmartCodingChallenge;
 			sourceTree = "<group>";
 		};
-		EDAF7A602D8D8E4C00C503EE /* WalmartCodingChallengeTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = WalmartCodingChallengeTests;
-			sourceTree = "<group>";
-		};
-		EDAF7A6A2D8D8E4C00C503EE /* WalmartCodingChallengeUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = WalmartCodingChallengeUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		ED5FABDD2D90DB6E0077E31B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED5FABEA2D90DB840077E31B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EDAF7A442D8D8E4B00C503EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDAF7A5A2D8D8E4C00C503EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDAF7A642D8D8E4C00C503EE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,8 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				EDAF7A492D8D8E4B00C503EE /* WalmartCodingChallenge */,
-				EDAF7A602D8D8E4C00C503EE /* WalmartCodingChallengeTests */,
-				EDAF7A6A2D8D8E4C00C503EE /* WalmartCodingChallengeUITests */,
+				ED5FABE12D90DB6E0077E31B /* WalmartCodingChallengeUnitTests */,
+				ED5FABEE2D90DB840077E31B /* WalmartCodingChallengeUITests */,
 				EDAF7A482D8D8E4B00C503EE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,8 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				EDAF7A472D8D8E4B00C503EE /* WalmartCodingChallenge.app */,
-				EDAF7A5D2D8D8E4C00C503EE /* WalmartCodingChallengeTests.xctest */,
-				EDAF7A672D8D8E4C00C503EE /* WalmartCodingChallengeUITests.xctest */,
+				ED5FABE02D90DB6E0077E31B /* WalmartCodingChallengeUnitTests.xctest */,
+				ED5FABED2D90DB840077E31B /* WalmartCodingChallengeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +108,52 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		ED5FABDF2D90DB6E0077E31B /* WalmartCodingChallengeUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED5FABE62D90DB6E0077E31B /* Build configuration list for PBXNativeTarget "WalmartCodingChallengeUnitTests" */;
+			buildPhases = (
+				ED5FABDC2D90DB6E0077E31B /* Sources */,
+				ED5FABDD2D90DB6E0077E31B /* Frameworks */,
+				ED5FABDE2D90DB6E0077E31B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED5FABE52D90DB6E0077E31B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ED5FABE12D90DB6E0077E31B /* WalmartCodingChallengeUnitTests */,
+			);
+			name = WalmartCodingChallengeUnitTests;
+			packageProductDependencies = (
+			);
+			productName = WalmartCodingChallengeUnitTests;
+			productReference = ED5FABE02D90DB6E0077E31B /* WalmartCodingChallengeUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ED5FABEC2D90DB840077E31B /* WalmartCodingChallengeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED5FABF52D90DB840077E31B /* Build configuration list for PBXNativeTarget "WalmartCodingChallengeUITests" */;
+			buildPhases = (
+				ED5FABE92D90DB840077E31B /* Sources */,
+				ED5FABEA2D90DB840077E31B /* Frameworks */,
+				ED5FABEB2D90DB840077E31B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED5FABF42D90DB840077E31B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				ED5FABEE2D90DB840077E31B /* WalmartCodingChallengeUITests */,
+			);
+			name = WalmartCodingChallengeUITests;
+			packageProductDependencies = (
+			);
+			productName = WalmartCodingChallengeUITests;
+			productReference = ED5FABED2D90DB840077E31B /* WalmartCodingChallengeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		EDAF7A462D8D8E4B00C503EE /* WalmartCodingChallenge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EDAF7A702D8D8E4C00C503EE /* Build configuration list for PBXNativeTarget "WalmartCodingChallenge" */;
@@ -130,52 +176,6 @@
 			productReference = EDAF7A472D8D8E4B00C503EE /* WalmartCodingChallenge.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EDAF7A5C2D8D8E4C00C503EE /* WalmartCodingChallengeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EDAF7A752D8D8E4C00C503EE /* Build configuration list for PBXNativeTarget "WalmartCodingChallengeTests" */;
-			buildPhases = (
-				EDAF7A592D8D8E4C00C503EE /* Sources */,
-				EDAF7A5A2D8D8E4C00C503EE /* Frameworks */,
-				EDAF7A5B2D8D8E4C00C503EE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EDAF7A5F2D8D8E4C00C503EE /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EDAF7A602D8D8E4C00C503EE /* WalmartCodingChallengeTests */,
-			);
-			name = WalmartCodingChallengeTests;
-			packageProductDependencies = (
-			);
-			productName = WalmartCodingChallengeTests;
-			productReference = EDAF7A5D2D8D8E4C00C503EE /* WalmartCodingChallengeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EDAF7A662D8D8E4C00C503EE /* WalmartCodingChallengeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EDAF7A782D8D8E4C00C503EE /* Build configuration list for PBXNativeTarget "WalmartCodingChallengeUITests" */;
-			buildPhases = (
-				EDAF7A632D8D8E4C00C503EE /* Sources */,
-				EDAF7A642D8D8E4C00C503EE /* Frameworks */,
-				EDAF7A652D8D8E4C00C503EE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EDAF7A692D8D8E4C00C503EE /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EDAF7A6A2D8D8E4C00C503EE /* WalmartCodingChallengeUITests */,
-			);
-			name = WalmartCodingChallengeUITests;
-			packageProductDependencies = (
-			);
-			productName = WalmartCodingChallengeUITests;
-			productReference = EDAF7A672D8D8E4C00C503EE /* WalmartCodingChallengeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -186,16 +186,16 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					ED5FABDF2D90DB6E0077E31B = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = EDAF7A462D8D8E4B00C503EE;
+					};
+					ED5FABEC2D90DB840077E31B = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = EDAF7A462D8D8E4B00C503EE;
+					};
 					EDAF7A462D8D8E4B00C503EE = {
 						CreatedOnToolsVersion = 16.2;
-					};
-					EDAF7A5C2D8D8E4C00C503EE = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = EDAF7A462D8D8E4B00C503EE;
-					};
-					EDAF7A662D8D8E4C00C503EE = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = EDAF7A462D8D8E4B00C503EE;
 					};
 				};
 			};
@@ -214,28 +214,28 @@
 			projectRoot = "";
 			targets = (
 				EDAF7A462D8D8E4B00C503EE /* WalmartCodingChallenge */,
-				EDAF7A5C2D8D8E4C00C503EE /* WalmartCodingChallengeTests */,
-				EDAF7A662D8D8E4C00C503EE /* WalmartCodingChallengeUITests */,
+				ED5FABDF2D90DB6E0077E31B /* WalmartCodingChallengeUnitTests */,
+				ED5FABEC2D90DB840077E31B /* WalmartCodingChallengeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		ED5FABDE2D90DB6E0077E31B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED5FABEB2D90DB840077E31B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EDAF7A452D8D8E4B00C503EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDAF7A5B2D8D8E4C00C503EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDAF7A652D8D8E4C00C503EE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -245,21 +245,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		ED5FABDC2D90DB6E0077E31B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED5FABE92D90DB840077E31B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EDAF7A432D8D8E4B00C503EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDAF7A592D8D8E4C00C503EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EDAF7A632D8D8E4C00C503EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,19 +269,89 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EDAF7A5F2D8D8E4C00C503EE /* PBXTargetDependency */ = {
+		ED5FABE52D90DB6E0077E31B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EDAF7A462D8D8E4B00C503EE /* WalmartCodingChallenge */;
-			targetProxy = EDAF7A5E2D8D8E4C00C503EE /* PBXContainerItemProxy */;
+			targetProxy = ED5FABE42D90DB6E0077E31B /* PBXContainerItemProxy */;
 		};
-		EDAF7A692D8D8E4C00C503EE /* PBXTargetDependency */ = {
+		ED5FABF42D90DB840077E31B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EDAF7A462D8D8E4B00C503EE /* WalmartCodingChallenge */;
-			targetProxy = EDAF7A682D8D8E4C00C503EE /* PBXContainerItemProxy */;
+			targetProxy = ED5FABF32D90DB840077E31B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		ED5FABE72D90DB6E0077E31B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8KS89M4CWF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CodingChallenge.WalmartCodingChallengeUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WalmartCodingChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WalmartCodingChallenge";
+			};
+			name = Debug;
+		};
+		ED5FABE82D90DB6E0077E31B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8KS89M4CWF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CodingChallenge.WalmartCodingChallengeUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WalmartCodingChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WalmartCodingChallenge";
+			};
+			name = Release;
+		};
+		ED5FABF62D90DB840077E31B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8KS89M4CWF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CodingChallenge.WalmartCodingChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WalmartCodingChallenge;
+			};
+			name = Debug;
+		};
+		ED5FABF72D90DB840077E31B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8KS89M4CWF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CodingChallenge.WalmartCodingChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WalmartCodingChallenge;
+			};
+			name = Release;
+		};
 		EDAF7A712D8D8E4C00C503EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -457,81 +527,27 @@
 			};
 			name = Release;
 		};
-		EDAF7A762D8D8E4C00C503EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8KS89M4CWF;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CodingChallenge.WalmartCodingChallengeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WalmartCodingChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WalmartCodingChallenge";
-			};
-			name = Debug;
-		};
-		EDAF7A772D8D8E4C00C503EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8KS89M4CWF;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CodingChallenge.WalmartCodingChallengeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WalmartCodingChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WalmartCodingChallenge";
-			};
-			name = Release;
-		};
-		EDAF7A792D8D8E4C00C503EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8KS89M4CWF;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CodingChallenge.WalmartCodingChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = WalmartCodingChallenge;
-			};
-			name = Debug;
-		};
-		EDAF7A7A2D8D8E4C00C503EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8KS89M4CWF;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CodingChallenge.WalmartCodingChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = WalmartCodingChallenge;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		ED5FABE62D90DB6E0077E31B /* Build configuration list for PBXNativeTarget "WalmartCodingChallengeUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED5FABE72D90DB6E0077E31B /* Debug */,
+				ED5FABE82D90DB6E0077E31B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED5FABF52D90DB840077E31B /* Build configuration list for PBXNativeTarget "WalmartCodingChallengeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED5FABF62D90DB840077E31B /* Debug */,
+				ED5FABF72D90DB840077E31B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EDAF7A422D8D8E4B00C503EE /* Build configuration list for PBXProject "WalmartCodingChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -546,24 +562,6 @@
 			buildConfigurations = (
 				EDAF7A712D8D8E4C00C503EE /* Debug */,
 				EDAF7A722D8D8E4C00C503EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EDAF7A752D8D8E4C00C503EE /* Build configuration list for PBXNativeTarget "WalmartCodingChallengeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EDAF7A762D8D8E4C00C503EE /* Debug */,
-				EDAF7A772D8D8E4C00C503EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EDAF7A782D8D8E4C00C503EE /* Build configuration list for PBXNativeTarget "WalmartCodingChallengeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EDAF7A792D8D8E4C00C503EE /* Debug */,
-				EDAF7A7A2D8D8E4C00C503EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

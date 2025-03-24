@@ -6,30 +6,131 @@
 //
 
 import XCTest
+import Combine
+@testable import WalmartCodingChallenge
 
 final class WalmartCodingChallengeUnitTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var viewModel: CountriesViewModel!
+    var mockCaller: MockDataCaller!
+    var cancellables: Set<AnyCancellable>!
+    
+    override func setUp() {
+        super.setUp()
+        mockCaller = MockDataCaller()
+        viewModel = CountriesViewModel(caller: mockCaller)
+        cancellables = []
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        viewModel = nil
+        mockCaller = nil
+        cancellables = nil
+        super.tearDown()
     }
+    
+    func testGetCountriesSuccess() {
+        // Given
+        let expectedCountries = [
+            CountryModel(
+                capital: "Paris",
+                code: "FR",
+                currency: Currency(code: "EUR", name: "Euro", symbol: "€"),
+                flag: "",
+                language: Language(code: "fr", name: "French"),
+                name: "France",
+                region: "EU"
+            ),
+            CountryModel(
+                capital: "Tokyo",
+                code: "JP",
+                currency: Currency(code: "JPY", name: "Yen", symbol: "¥"),
+                flag: "",
+                language: Language(code: "ja", name: "Japanese"),
+                name: "Japan",
+                region: "AS"
+            )
+        ]
+        
+        mockCaller.publisher = Just(expectedCountries)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+        
+        let expectation = XCTestExpectation(description: "Countries fetched")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        viewModel.$countries
+            .dropFirst()
+            .sink { countries in
+                XCTAssertEqual(countries.count, 2)
+                XCTAssertEqual(countries[0].name, "France")
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+
+        // When
+        viewModel.getCountries()
+        
+        // Then
+        wait(for: [expectation], timeout: 1.0)
     }
+    
+    func testSearchCountries() {
+        // Given
+        let expectedCountries = [
+            CountryModel(
+                capital: "Tokyo",
+                code: "JP",
+                currency: Currency(code: "JPY", name: "Yen", symbol: "¥"),
+                flag: "",
+                language: Language(code: "ja", name: "Japanese"),
+                name: "Japan",
+                region: "AS"
+            ),
+            CountryModel(
+                capital: "Berlin",
+                code: "DE",
+                currency: Currency(code: "EUR", name: "Euro", symbol: "€"),
+                flag: "",
+                language: Language(code: "de", name: "German"),
+                name: "Germany",
+                region: "EU"
+            )
+        ]
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+        mockCaller.publisher = Just(expectedCountries)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+        
+        let expectation = XCTestExpectation(description: "Search countries filtered")
+        
+        viewModel.$searchedCountries
+            .dropFirst()
+            .sink { searched in
+                XCTAssertEqual(searched.count, 1)
+                XCTAssertEqual(searched[0].name, "Germany")
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+
+        viewModel.getCountries()
+
+        viewModel.$countries
+            .dropFirst()
+            .sink { _ in
+                self.viewModel.isSearchActive = true
+                self.viewModel.searchText = "ger"
+            }
+            .store(in: &cancellables)
+
+        wait(for: [expectation], timeout: 1.0)
     }
+}
 
+class MockDataCaller: DataCaller {
+    var publisher: AnyPublisher<[CountryModel], Error> = Just([])
+        .setFailureType(to: Error.self)
+        .eraseToAnyPublisher()
+    
+    func fetchData<T>(urlStr: String) -> AnyPublisher<T, Error> where T : Decodable {
+        return publisher as! AnyPublisher<T, Error>
+    }
 }
