@@ -13,6 +13,7 @@ class CountriesViewModel: ObservableObject {
     @Published private(set) var searchedCountries: [CountryModel] = []
     @Published var isSearchActive: Bool = false
     @Published var searchText: String = ""
+    @Published var error: NetworkError?
     
     private let caller: DataCaller
     private let urlString = Constants.API.countriesURL
@@ -35,6 +36,7 @@ class CountriesViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case let .failure(error) = completion {
+                    self.error = error as? NetworkError
                     print(error)
                 }
             }, receiveValue: { [weak self] country in

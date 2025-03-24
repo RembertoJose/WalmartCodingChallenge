@@ -29,7 +29,6 @@ final class WalmartCodingChallengeUnitTests: XCTestCase {
     }
     
     func testGetCountriesSuccess() {
-        // Given
         let expectedCountries = [
             CountryModel(
                 capital: "Paris",
@@ -56,7 +55,7 @@ final class WalmartCodingChallengeUnitTests: XCTestCase {
             .eraseToAnyPublisher()
         
         let expectation = XCTestExpectation(description: "Countries fetched")
-
+        
         viewModel.$countries
             .dropFirst()
             .sink { countries in
@@ -65,16 +64,13 @@ final class WalmartCodingChallengeUnitTests: XCTestCase {
                 expectation.fulfill()
             }
             .store(in: &cancellables)
-
-        // When
+        
         viewModel.getCountries()
         
-        // Then
         wait(for: [expectation], timeout: 1.0)
     }
     
     func testSearchCountries() {
-        // Given
         let expectedCountries = [
             CountryModel(
                 capital: "Tokyo",
@@ -95,7 +91,7 @@ final class WalmartCodingChallengeUnitTests: XCTestCase {
                 region: "EU"
             )
         ]
-
+        
         mockCaller.publisher = Just(expectedCountries)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
@@ -110,9 +106,9 @@ final class WalmartCodingChallengeUnitTests: XCTestCase {
                 expectation.fulfill()
             }
             .store(in: &cancellables)
-
+        
         viewModel.getCountries()
-
+        
         viewModel.$countries
             .dropFirst()
             .sink { _ in
@@ -120,7 +116,34 @@ final class WalmartCodingChallengeUnitTests: XCTestCase {
                 self.viewModel.searchText = "ger"
             }
             .store(in: &cancellables)
-
+        
+        wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func testGetCountriesFailure() {
+        mockCaller.publisher = Fail(error: NetworkError.responseFailure)
+            .eraseToAnyPublisher()
+        
+        let expectation = XCTestExpectation(description: "Expected responseFailure")
+        
+        viewModel.$error
+            .dropFirst()
+            .sink { error in
+                if let error = error {
+                    switch error {
+                    case .responseFailure:
+                        expectation.fulfill()
+                    default:
+                        XCTFail("Expected NetworkError.responseFailure, got \(error)")
+                    }
+                } else {
+                    XCTFail("Error is not of type NetworkError")
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.getCountries()
+        
         wait(for: [expectation], timeout: 1.0)
     }
 }
